@@ -10,8 +10,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="space-y-4">
             <div className="text-2xl font-bold">
-              <span className="text-jungle-orange">Jungle</span>
-              <span className="text-tech-blue">Nexus</span>
+              <span className="gradient-text-jungle">Jungle</span>
+              <span className="gradient-text-tech">Nexus</span>
             </div>
             <p className="text-white/70">
               Modern distribution solutions connecting quality products to global marketplaces.
@@ -43,8 +43,6 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="text-white/70">info@thejunglenexus.com</li>
               <li className="text-white/70">(734) 732-5192</li>
-              <li className="text-white/70">123 Distribution Way</li>
-              <li className="text-white/70">Seattle, WA 98101</li>
             </ul>
           </div>
         </div>
