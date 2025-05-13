@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -52,6 +53,21 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				jungle: {
+					red: '#ea384c',
+					orange: '#FEC6A1',
+					peach: '#FDE1D3',
+				},
+				tech: {
+					blue: '#0EA5E9',
+					lightBlue: '#D3E4FD',
+					green: '#F2FCE2',
+				},
+				neutral: {
+					gray: '#8E9196',
+					lightGray: '#F1F0FB',
+					charcoal: '#221F26',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
@@ -84,11 +100,36 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
+				},
+				'fade-out': {
+					'0%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					},
+					'100%': {
+						opacity: '0',
+						transform: 'translateY(10px)'
+					}
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+			},
+			backgroundImage: {
+				'jungle-gradient': 'linear-gradient(90deg, #ea384c 0%, #FEC6A1 100%)',
+				'tech-gradient': 'linear-gradient(90deg, #0EA5E9 0%, #F2FCE2 100%)',
 			}
 		}
 	},
