@@ -20,7 +20,7 @@ const About = () => {
                 </div>
                 
                 <div className="space-y-2 text-center">
-                  <p className="text-xl font-medium text-neutral-charcoal">Founded 2018</p>
+                  <p className="text-xl font-medium text-neutral-charcoal">Founded 2023</p>
                   <p className="text-neutral-gray">Distribution Excellence</p>
                 </div>
               </div>
