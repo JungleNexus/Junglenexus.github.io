@@ -11,6 +11,11 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
+  build: {
+    outDir: "dist",
+    sourcemap: true,
+    assetsInlineLimit: 0, // Ensures all assets are properly referenced
+  },
   plugins: [
     react(),
     mode === 'development' &&
