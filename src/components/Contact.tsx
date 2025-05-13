@@ -37,8 +37,8 @@ const Contact = () => {
                 <div className="bg-tech-gradient rounded-full p-2">
                   <Phone className="h-5 w-5 text-white" />
                 </div>
-                <a href="tel:+15551234567" className="text-neutral-charcoal hover:text-tech-blue transition-colors">
-                  (555) 123-4567
+                <a href="tel:+17347325192" className="text-neutral-charcoal hover:text-tech-blue transition-colors">
+                  (734) 732-5192
                 </a>
               </div>
             </div>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Accordion,
@@ -19,7 +18,7 @@ const Faq = () => {
     },
     {
       question: "What marketplaces does Jungle Nexus sell through?",
-      answer: "We primarily distribute through Amazon, but also have established channels on Walmart, eBay, Target Plus, and other major online marketplaces. Our multi-channel approach maximizes visibility and sales potential for the products we distribute, while our centralized inventory management ensures consistent stock levels across all platforms."
+      answer: "We primarily distribute through Amazon, but also have established channels on Walmart, eBay, and other major online marketplaces. Our multi-channel approach maximizes visibility and sales potential for the products we distribute, while our centralized inventory management ensures consistent stock levels across all platforms."
     },
     {
       question: "What does the onboarding process look like for new suppliers?",
