@@ -41,8 +41,8 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-2">
-              <li className="text-white/70">info@junglenexus.com</li>
-              <li className="text-white/70">(555) 123-4567</li>
+              <li className="text-white/70">info@thejunglenexus.com</li>
+              <li className="text-white/70">(734) 732-5192</li>
               <li className="text-white/70">123 Distribution Way</li>
               <li className="text-white/70">Seattle, WA 98101</li>
             </ul>

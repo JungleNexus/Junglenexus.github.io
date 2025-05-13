@@ -28,8 +28,8 @@ const Contact = () => {
                 <div className="bg-jungle-gradient rounded-full p-2">
                   <Mail className="h-5 w-5 text-white" />
                 </div>
-                <a href="mailto:info@junglenexus.com" className="text-neutral-charcoal hover:text-jungle-red transition-colors">
-                  info@junglenexus.com
+                <a href="mailto:info@thejunglenexus.com" className="text-neutral-charcoal hover:text-jungle-red transition-colors">
+                  info@thejunglenexus.com
                 </a>
               </div>
               
