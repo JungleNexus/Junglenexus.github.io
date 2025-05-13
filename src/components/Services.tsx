@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Package, ArrowRight, Users, Chart } from 'lucide-react';
+import { Package, ArrowRight, Users, BarChart } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const ServicesCard = ({ title, description, icon, isJungleStyle = true }) => {
@@ -33,7 +33,7 @@ const Services = () => {
     {
       title: "Strategic Inventory Management",
       description: "Our advanced forecasting and inventory control systems ensure optimal stock levels and minimize costs.",
-      icon: Chart,
+      icon: BarChart,
       isJungleStyle: false
     },
     {
