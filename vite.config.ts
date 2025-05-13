@@ -15,6 +15,17 @@ export default defineConfig(({ mode }) => ({
     outDir: "dist",
     sourcemap: true,
     assetsInlineLimit: 0, // Ensures all assets are properly referenced
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: [
+            'react', 
+            'react-dom',
+            'react-router-dom'
+          ],
+        },
+      },
+    },
   },
   plugins: [
     react(),

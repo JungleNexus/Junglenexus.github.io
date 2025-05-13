@@ -46,17 +46,19 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // Using FormSubmit as a simple form submission service
+      // Using FormSubmit as a simple form submission service - client side only
+      const formData = new FormData();
+      Object.entries(values).forEach(([key, value]) => {
+        formData.append(key, value);
+      });
+      
+      // Add FormSubmit specific fields
+      formData.append('_subject', `New Contact Form Submission from ${values.name}`);
+      formData.append('_captcha', 'false'); // Disable FormSubmit's captcha for now
+      
       const response = await fetch("https://formsubmit.co/info@thejunglenexus.com", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          ...values,
-          _subject: `New Contact Form Submission from ${values.name}`,
-        }),
+        body: formData,
       });
       
       if (response.ok) {
