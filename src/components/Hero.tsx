@@ -11,7 +11,7 @@ const Hero = () => {
       {/* Main content */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 max-w-2xl animate-fade-in">
+          <div className="space-y-8 max-w-2xl fade-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               We're always growing connections—
               <span className="gradient-text-jungle">let's start one with you.</span>
@@ -36,7 +36,7 @@ const Hero = () => {
             </div>
           </div>
           
-          <div className="relative hidden lg:block">
+          <div className="relative hidden lg:block fade-left">
             <div className="aspect-video bg-neutral-lightGray rounded-2xl overflow-hidden shadow-xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
               <div className="absolute inset-0 bg-jungle-gradient opacity-20 mix-blend-overlay"></div>
               <div className="absolute inset-0 flex items-center justify-center">
