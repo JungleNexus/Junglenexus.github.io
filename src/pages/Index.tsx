@@ -14,11 +14,21 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <Hero />
-      <About />
-      <Services />
-      <Quality />
-      <Faq />
-      <Contact />
+      <div className="bg-gradient-warm">
+        <About />
+      </div>
+      <div className="bg-dot-pattern">
+        <Services />
+      </div>
+      <div className="bg-gradient-cool">
+        <Quality />
+      </div>
+      <div className="bg-wave-pattern">
+        <Faq />
+      </div>
+      <div className="bg-gradient-soft">
+        <Contact />
+      </div>
       <Footer />
     </div>
   );

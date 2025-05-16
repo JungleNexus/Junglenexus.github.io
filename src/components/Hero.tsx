@@ -6,7 +6,7 @@ import { ArrowRight } from 'lucide-react';
 const Hero = () => {
   return (
     <section className="hero-section min-h-screen flex items-center py-24 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-white/40 z-0"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-jungle-peach/10 to-tech-blue/5 z-0"></div>
       
       {/* Main content */}
       <div className="container mx-auto px-4 md:px-6 relative z-10">
@@ -49,6 +49,10 @@ const Hero = () => {
                 <div className="w-10 h-10 rounded-full bg-jungle-orange absolute top-12 right-24"></div>
               </div>
             </div>
+            
+            {/* Added decorative elements */}
+            <div className="absolute -z-10 -bottom-8 -right-8 w-64 h-64 bg-jungle-orange/10 rounded-full blur-3xl"></div>
+            <div className="absolute -z-10 -top-8 -left-8 w-48 h-48 bg-tech-blue/10 rounded-full blur-3xl"></div>
           </div>
         </div>
       </div>
