@@ -1,92 +1,9 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, ArrowRight, Loader2 } from 'lucide-react';
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod";
-import { useToast } from "@/hooks/use-toast";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Textarea } from "@/components/ui/textarea";
-
-// Define form schema with validation rules
-const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  company: z.string().min(1, { message: "Company name is required." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
-});
-
-type ContactFormValues = z.infer<typeof formSchema>;
+import { Mail, Phone, ArrowRight } from 'lucide-react';
 
 const Contact = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
-  // Initialize form
-  const form = useForm<ContactFormValues>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      company: "",
-      message: "",
-    },
-  });
-
-  // Form submission handler
-  const onSubmit = async (values: ContactFormValues) => {
-    setIsSubmitting(true);
-    
-    try {
-      // Create a plain form data object to use with FormSubmit service
-      const formData = new FormData();
-      
-      // Add all form values to formData
-      Object.entries(values).forEach(([key, value]) => {
-        formData.append(key, String(value));
-      });
-      
-      // Add FormSubmit specific configuration fields
-      formData.append('_subject', `New Contact Form Submission from ${values.name}`);
-      formData.append('_captcha', 'false');
-      formData.append('_next', window.location.href);  // For proper redirect after submission
-      
-      // Send form data to FormSubmit endpoint
-      const response = await fetch("https://formsubmit.co/info@thejunglenexus.com", {
-        method: "POST",
-        body: formData,
-        mode: "no-cors" // This is important for cross-origin form submissions
-      });
-      
-      // FormSubmit will redirect on success, but when testing we need to handle the response
-      toast({
-        title: "Message sent successfully",
-        description: "Thank you for reaching out! We'll get back to you soon.",
-      });
-      
-      // Reset form
-      form.reset();
-    } catch (error) {
-      // Show error message
-      toast({
-        title: "Failed to send message",
-        description: "Please try again or contact us directly via email.",
-        variant: "destructive",
-      });
-      console.error("Form submission error:", error);
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section id="contact" className="section bg-neutral-lightGray/30 relative overflow-hidden">
       {/* Decorative background elements */}
@@ -130,111 +47,62 @@ const Contact = () => {
           <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
             <h3 className="text-2xl font-semibold mb-6">Send us a message</h3>
             
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm font-medium text-neutral-charcoal">
-                          Name
-                        </FormLabel>
-                        <FormControl>
-                          <input
-                            {...field}
-                            className="w-full px-4 py-3 border border-neutral-gray/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-jungle-red/50"
-                            placeholder="Your name"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm font-medium text-neutral-charcoal">
-                          Email
-                        </FormLabel>
-                        <FormControl>
-                          <input
-                            {...field}
-                            type="email"
-                            className="w-full px-4 py-3 border border-neutral-gray/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-jungle-red/50"
-                            placeholder="Your email"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-neutral-charcoal">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full px-4 py-3 border border-neutral-gray/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-jungle-red/50"
+                    placeholder="Your name"
                   />
                 </div>
                 
-                <FormField
-                  control={form.control}
-                  name="company"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm font-medium text-neutral-charcoal">
-                        Company
-                      </FormLabel>
-                      <FormControl>
-                        <input
-                          {...field}
-                          className="w-full px-4 py-3 border border-neutral-gray/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-jungle-red/50"
-                          placeholder="Your company name"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
+                <div className="space-y-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-neutral-charcoal">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    className="w-full px-4 py-3 border border-neutral-gray/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-jungle-red/50"
+                    placeholder="Your email"
+                  />
+                </div>
+              </div>
+              
+              <div className="space-y-2">
+                <label htmlFor="company" className="block text-sm font-medium text-neutral-charcoal">
+                  Company
+                </label>
+                <input
+                  type="text"
+                  id="company"
+                  className="w-full px-4 py-3 border border-neutral-gray/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-jungle-red/50"
+                  placeholder="Your company name"
                 />
-                
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-sm font-medium text-neutral-charcoal">
-                        Message
-                      </FormLabel>
-                      <FormControl>
-                        <Textarea
-                          {...field}
-                          rows={4}
-                          className="w-full px-4 py-3 border border-neutral-gray/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-jungle-red/50 resize-none"
-                          placeholder="Tell us about your distribution needs"
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <Button 
-                  type="submit" 
-                  className="btn-jungle rounded-full px-6 w-full"
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <ArrowRight className="ml-2 h-5 w-5" />
-                    </>
-                  )}
-                </Button>
-              </form>
-            </Form>
+              </div>
+              
+              <div className="space-y-2">
+                <label htmlFor="message" className="block text-sm font-medium text-neutral-charcoal">
+                  Message
+                </label>
+                <textarea
+                  id="message"
+                  rows={4}
+                  className="w-full px-4 py-3 border border-neutral-gray/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-jungle-red/50"
+                  placeholder="Tell us about your distribution needs"
+                ></textarea>
+              </div>
+              
+              <Button type="submit" className="btn-jungle rounded-full px-6 w-full">
+                Send Message
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Button>
+            </form>
           </div>
         </div>
       </div>

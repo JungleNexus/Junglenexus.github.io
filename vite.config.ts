@@ -13,25 +13,8 @@ export default defineConfig(({ mode }) => ({
   },
   build: {
     outDir: "dist",
-    sourcemap: mode === 'development',
-    assetsInlineLimit: 4096, // Default 4kb - helps reduce HTTP requests
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: [
-            'react', 
-            'react-dom',
-            'react-router-dom'
-          ],
-          ui: [
-            '@radix-ui/react-toast',
-            '@radix-ui/react-label',
-            '@radix-ui/react-slot',
-            'class-variance-authority',
-          ],
-        },
-      },
-    },
+    sourcemap: true,
+    assetsInlineLimit: 0, // Ensures all assets are properly referenced
   },
   plugins: [
     react(),
@@ -42,8 +25,5 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom'],
   },
 }));
