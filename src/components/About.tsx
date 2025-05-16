@@ -3,7 +3,11 @@ import React from 'react';
 
 const About = () => {
   return (
-    <section id="about" className="section bg-neutral-lightGray/30 relative">
+    <section id="about" className="section bg-neutral-lightGray/30 relative overflow-hidden">
+      {/* Decorative background elements similar to Quality section */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-jungle-gradient opacity-5 rounded-l-full"></div>
+      <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-tech-gradient opacity-5 rounded-tr-full"></div>
+      
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
