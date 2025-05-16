@@ -14,7 +14,9 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <Hero />
-      <div className="bg-gradient-warm">
+      <div className="bg-gradient-cool relative">
+        <div className="absolute top-0 right-0 w-1/3 h-full bg-jungle-gradient opacity-5 rounded-l-full"></div>
+        <div className="absolute bottom-0 left-0 w-1/4 h-2/3 bg-tech-gradient opacity-5 rounded-tr-full"></div>
         <About />
       </div>
       <div className="bg-dot-pattern">

@@ -3,8 +3,8 @@ import React from 'react';
 
 const About = () => {
   return (
-    <section id="about" className="section bg-neutral-lightGray/30">
-      <div className="container mx-auto px-4 md:px-6">
+    <section id="about" className="section bg-neutral-lightGray/30 relative">
+      <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="aspect-square max-w-md mx-auto bg-white rounded-2xl shadow-lg p-8 relative z-10">
