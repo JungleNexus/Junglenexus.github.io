@@ -45,7 +45,7 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // This is a formspree-compatible endpoint that works with most static hosting providers
+      // This is a formspree-compatible endpoint using your domain email
       const response = await fetch("https://formspree.io/f/info@thejunglenexus.com", {
         method: "POST",
         headers: {
