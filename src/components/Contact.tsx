@@ -45,15 +45,16 @@ const Contact = () => {
     setIsSubmitting(true);
     
     try {
-      // This is a formspree-compatible endpoint using your domain email
-      const response = await fetch("https://formspree.io/f/info@thejunglenexus.com", {
+      // Using GoDaddy's email form handler
+      const response = await fetch("https://www.godaddy.com/email-marketing/form-submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ 
           ...data, 
-          _subject: `Contact Form: ${data.name} from ${data.company || 'Not provided'}` 
+          recipient: "info@thejunglenexus.com",
+          subject: `Contact Form: ${data.name} from ${data.company || 'Not provided'}` 
         }),
       });
       
